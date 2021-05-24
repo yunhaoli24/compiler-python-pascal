@@ -10,6 +10,7 @@
 # return_type         : Type
 # function_block      : compound_statement
 
+from src.parser.Abstract_Syntax_Tree import *
 
 def p_function_definition_1(p):
     'function_definition : function_heading SEMICOLON function_block'

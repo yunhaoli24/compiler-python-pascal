@@ -16,7 +16,7 @@ class Compiler(object):
         self.debug = debug
 
         self.lexer = lex.lex(module=tokrules, debug=False)
-        self.parser = yacc.yacc(module=parser, debug=False,start="ProgDef")
+        self.parser = yacc.yacc(module=parser, debug=False, start="ProgDef")
 
     def analyze(self):
         if (self.debug):
@@ -26,8 +26,8 @@ class Compiler(object):
 
         print("正在进行语法分析....")
         Abstract_Syntax_Tree = self.parser.parse(input=self.data,
-                                                      lexer=self.lexer,
-                                                      tracking=True)
+                                                 lexer=self.lexer,
+                                                 tracking=True)
         # 打印抽象语法树
         print('+' * 43 + ' 抽象语法树 ' + '+' * 43)
         AST_Dumper.showNode(Abstract_Syntax_Tree, 0)
@@ -39,7 +39,8 @@ class Compiler(object):
         symbol_table.print_SymbolTable()
 
         # 语义分析
-        semantics_analyze = SemanticsAnalyze(Abstract_Syntax_Tree, symbol_table)
+        semantics_analyze = SemanticsAnalyze(Abstract_Syntax_Tree,
+                                             symbol_table)
         semantics_analyze.analyze()
         semantics_analyze.print_newSymbolTable()
 
@@ -54,7 +55,6 @@ class Compiler(object):
             print('正在读入目标代码....')
             with open(file_path, 'r', encoding='utf-8') as sourceF:
                 data = sourceF.read()
-            print('读入代码成功！')
             return data
         except Exception:
             print("输入正确的文件路径！")

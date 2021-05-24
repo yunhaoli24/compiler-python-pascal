@@ -4,7 +4,7 @@
 #             | Not BoolExpr | '(' BoolExpr ')'
 #             | Expr                                                                ——>[zcr补充]
 # RelationOp:  '<' | '>' | '=' | GE | NE | LE
-
+from src.parser.Abstract_Syntax_Tree import *
 
 def p_BoolExpr_LT(p):
     'BoolExpr : Expr LT Expr'
