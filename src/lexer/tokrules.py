@@ -1,3 +1,4 @@
+# 词法单元的类型定义为tokens元组，元组的元素就是所有的词法单元类型。tokens元组定义了词法分析器可以产生的所有词法单元的类型，并且在语法分析时这个元组同样会用到，来识别终结符。
 part_tokens = [
     'INT_NUMBER',  # 整数
     'REAL_NUMBER',  # 浮点数
@@ -65,7 +66,11 @@ reserved = {
     'break': 'BREAK',  # 增加对break的支持
 }
 
+
+
 tokens = part_tokens + list(reserved.values())
+
+# 简单的正则表达式，当输入的字符序列符合这个正则表达式时，该序列就会被识别为该类型的词法单元：
 
 t_PLUS = r'\+'
 t_MINUS = r'\-'
@@ -92,15 +97,20 @@ t_ENDPOINT = r'.'
 t_ignore = ' \t\r\x0c'
 
 
+# value：默认就是识别出的字符串序列。 
+# type：词法单元的类型，就是在tokens元组中的定义的。 
+# line：词法单元在源代码中的行号。 
+# lexpos：词法单元在该行的列号。 
+
+
 # 浮点数(实数)
 def t_REAL_NUMBER(t):
     # r'\d+\.\d+'
     r"[\+-](\d+\.\d+([eE][\+-]\d+)?)|(\d+[eE][\+-]\d+)"
-    # t.lexer.float_count += 1
+    # t.lexer.float_count += 1 # 统计浮点数出现的次数
     t.value = float(t.value)
     t.endlexpos = t.lexpos + len(str(t.value))
     return t
-
 
 # 整数
 def t_INT_NUMBER(t):
@@ -110,13 +120,13 @@ def t_INT_NUMBER(t):
     t.endlexpos = t.lexpos + len(str(t.value))
     return t
 
-
+#布尔
 def t_BOOLEAN(t):
     r'true|false'
     t.endlexpos = t.lexpos + len(t.value)
     return t
 
-
+#标记被lex返回后，它们的值被保存在value属性中。正常情况下，value是匹配的实际文本。事实上，value可以被赋为任何Python支持的类型。
 def t_ID(t):
     r'[a-zA-Z_][a-zA-Z_0-9]*'
     if t.value.lower() in reserved:  # 识别保留字
@@ -169,7 +179,7 @@ def t_STRING(t):
     t.value = new_str
     return t
 
-
+# 十进制整数
 # leading zeros are allowed.
 def t_DIGSEQ(t):
     r'[0-9]+'
@@ -194,7 +204,7 @@ def t_UPARROW(t):
 
 # =========================== array ==============================
 
-
+#支持数组
 def t_DOTDOT(t):
     r"\.\."
     t.endlexpos = t.lexpos + len(t.value)
@@ -202,6 +212,7 @@ def t_DOTDOT(t):
 
 
 # Define a rule so we can track line numbers
+#lex.py是不提供行号信息，因为它不知如何识别一行。可以通过t_newline()规则来更新行号信息： 
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)

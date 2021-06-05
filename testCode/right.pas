@@ -29,7 +29,7 @@ begin
 	//    	   continue;
 
 	//    sum := 300;
-	// end;
+	/** abc*d**/
 	
 	j := (9 + 3) - 8;
 	i := 4;

@@ -34,8 +34,8 @@ def p_SubProg(p):
 
 
 def p_error(p):
-    print("Syntax error in input:")
-    print('invalid token {} at {} line. (total Position: {})'.format(
+    print("语法分析错误:")
+    print('不能接受的Token "{}" 位于 {}. 总位置: {})'.format(
         p.value, p.lineno, p.lexpos))
 
 

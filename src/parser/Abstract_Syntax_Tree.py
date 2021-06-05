@@ -102,7 +102,7 @@ class VarDefListNode(Node):
     def __str__(self):
         return "VarDefList"
 
-# 6.17 添加对数组的支持
+#  添加对数组的支持
 class VarDefStateNode(Node):
     def __init__(self, Varlist = None, Type = None, ArrayDefState = None):
         if Varlist is not None and Type is not None:
@@ -140,7 +140,7 @@ class VarListNode(Node):
     def __str__(self):
         return "VarList"
 
-# 6.17 添加对数组的支持
+#  添加对数组的支持
 class ArrayNode(Node):
     def __init__(self, arrayName, index_list, arrayElem_type):
         self.arrayName = arrayName

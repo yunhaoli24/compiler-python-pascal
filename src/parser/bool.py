@@ -2,7 +2,7 @@
 
 # BoolExpr:    Expr RelationOp Expr | BoolExpr And BoolExpr | BoolExpr Or BoolExpr
 #             | Not BoolExpr | '(' BoolExpr ')'
-#             | Expr                                                                ——>[zcr补充]
+#             | Expr                                                               
 # RelationOp:  '<' | '>' | '=' | GE | NE | LE
 from src.parser.Abstract_Syntax_Tree import *
 
