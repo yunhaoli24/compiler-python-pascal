@@ -1,3 +1,4 @@
+import re
 from src.lexer.tokrules import tokens
 from src.parser.Abstract_Syntax_Tree import *
 
@@ -35,8 +36,9 @@ def p_SubProg(p):
 
 def p_error(p):
     print("语法分析错误:")
-    print('不能接受的Token "{}" 位于 {}. 总位置: {})'.format(
-        p.value, p.lineno, p.lexpos))
+    print('\t不能接受的Token "{}" 位于 {}. 总位置: {})'.format(p.value, p.lineno,
+                                                     p.lexpos))
+    return p.lexer.token()
 
 
 def p_empty(p):

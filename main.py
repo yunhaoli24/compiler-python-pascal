@@ -5,7 +5,7 @@ if __name__ == '__main__':
     # path = '/root/workspace/Compilers/compilingPrinciple/testCode/right.pas'
     # path = '/root/workspace/Compilers/compilingPrinciple/testCode/test_ForLoop.pas'
     # path = '/root/workspace/Compilers/compilingPrinciple/testCode/test_case.pas'
-    debug = True
+    debug = False
     print('目标文件：{}'.format(path))
     compiler = Compiler(path, debug)
     compiler.analyze()

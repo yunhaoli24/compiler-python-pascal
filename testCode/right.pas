@@ -30,7 +30,6 @@ begin
 
 	//    sum := 300;
 	/** abc*d**/
-	
 	j := (9 + 3) - 8;
 	i := 4;
 	for i := 1 to 10 do

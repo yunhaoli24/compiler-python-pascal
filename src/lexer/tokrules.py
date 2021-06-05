@@ -66,8 +66,6 @@ reserved = {
     'break': 'BREAK',  # 增加对break的支持
 }
 
-
-
 tokens = part_tokens + list(reserved.values())
 
 # 简单的正则表达式，当输入的字符序列符合这个正则表达式时，该序列就会被识别为该类型的词法单元：
@@ -96,29 +94,31 @@ t_ENDPOINT = r'.'
 
 t_ignore = ' \t\r\x0c'
 
+# value：默认就是识别出的字符串序列。
+# type：词法单元的类型，就是在tokens元组中的定义的。
+# line：词法单元在源代码中的行号。
+# lexpos：词法单元在该行的列号。
 
-# value：默认就是识别出的字符串序列。 
-# type：词法单元的类型，就是在tokens元组中的定义的。 
-# line：词法单元在源代码中的行号。 
-# lexpos：词法单元在该行的列号。 
 
-
-# 浮点数(实数)
+# 浮点数(实数) b
 def t_REAL_NUMBER(t):
     # r'\d+\.\d+'
     r"[\+-](\d+\.\d+([eE][\+-]\d+)?)|(\d+[eE][\+-]\d+)"
-    # t.lexer.float_count += 1 # 统计浮点数出现的次数
     t.value = float(t.value)
     t.endlexpos = t.lexpos + len(str(t.value))
     return t
+
 
 # 整数
 def t_INT_NUMBER(t):
     r'\d+'  # 如果需要执行动作的话，规则可以写成一个方法。如果使用方法的话，正则表达式写成方法的文档字符串。
     # t.lexer.integer_count += 1  # 统计整数出现的次数
+    if (int(t.value) > 65535):
+        print("[词法分析] 第{} 行 整数越界'{}'".format(t.lexer.lineno, t.value.lower()))
     t.value = int(t.value)
     t.endlexpos = t.lexpos + len(str(t.value))
     return t
+
 
 #布尔
 def t_BOOLEAN(t):
@@ -126,12 +126,16 @@ def t_BOOLEAN(t):
     t.endlexpos = t.lexpos + len(t.value)
     return t
 
+
 #标记被lex返回后，它们的值被保存在value属性中。正常情况下，value是匹配的实际文本。事实上，value可以被赋为任何Python支持的类型。
 def t_ID(t):
     r'[a-zA-Z_][a-zA-Z_0-9]*'
     if t.value.lower() in reserved:  # 识别保留字
         t.type = reserved[t.value.lower()]  # 前面如果有下划线，则表示是保留字，而不是普通的ID
     else:
+        if len(t.value.lower()) > 8:
+            print("[词法分析] 第{} 行标识符长度大于8 '{}' ".format(t.lexer.lineno,
+                                                      t.value.lower()))
         t.type = 'ID'  # Check for reserved words
     t.endlexpos = t.lexpos + len(t.value)
     return t
@@ -179,6 +183,7 @@ def t_STRING(t):
     t.value = new_str
     return t
 
+
 # 十进制整数
 # leading zeros are allowed.
 def t_DIGSEQ(t):
@@ -204,6 +209,7 @@ def t_UPARROW(t):
 
 # =========================== array ==============================
 
+
 #支持数组
 def t_DOTDOT(t):
     r"\.\."
@@ -212,7 +218,7 @@ def t_DOTDOT(t):
 
 
 # Define a rule so we can track line numbers
-#lex.py是不提供行号信息，因为它不知如何识别一行。可以通过t_newline()规则来更新行号信息： 
+#lex.py是不提供行号信息，因为它不知如何识别一行。可以通过t_newline()规则来更新行号信息：
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)

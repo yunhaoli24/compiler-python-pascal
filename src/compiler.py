@@ -24,12 +24,11 @@ class Compiler(object):
             for token in self.lexer:
                 print(token)
 
-        print("正在进行语法分析....")
         Abstract_Syntax_Tree = self.parser.parse(input=self.data,
                                                  lexer=self.lexer,
                                                  tracking=True)
         # 打印抽象语法树
-        print('+' * 43 + ' 抽象语法树 ' + '+' * 43)
+        print('+' * 43 + ' 抽象语法树 ' + '+' * 41)
         AST_Dumper.showNode(Abstract_Syntax_Tree, 0)
         print('+' * 48 + '+' * 48)
 
@@ -49,6 +48,7 @@ class Compiler(object):
         print('+' * 44 + ' 四元式 ' + '+' * 44)
         ic_generator_obj.print_IC()
         print('+' * 48 + '+' * 48)
+        ic_generator_obj.storeIC()
 
     def read_file(self, file_path):
         try:

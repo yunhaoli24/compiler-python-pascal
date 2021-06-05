@@ -8,7 +8,7 @@ import sys
 class SemanticsAnalyze(object):
     def __init__(self, rootNode, SymTab):
         self.rootNode = rootNode
-        self.symbol_table_obj = SymTab     # SymTab是SymbolTable对象,就是生成的符号表
+        self.symbol_table_obj = SymTab
 
     def walkTree(self, node):
         if node is not None and isinstance(node, AST.Node):
@@ -18,7 +18,7 @@ class SemanticsAnalyze(object):
                 # print(node.children[-1])    # 例如：Unary_Operation、Binary_Operation
                 # print(node.children[0].name)  # 例如：i
                 if self.symbol_table_obj.symbolTable.get(node.children[0].name) is None:    # 没有查到该符号
-                    print("[At semantics]: the variable %s is used without defination!" % node.children[0].name)
+                    print("[语义分析错误]: 变量 %s 未经定义便使用!" % node.children[0].name)
                     sys.exit(1)
                 else:   # 该符号在符号表里有定义
                     # print(node.children[-1])
@@ -40,7 +40,7 @@ class SemanticsAnalyze(object):
                         return -self.getArithmeticValue(node.children[-1])
             elif node.__class__.__name__ == 'BinaryOpNode':
                 if len(node.children) != 3:    # BinaryOpNode有三个子节点
-                    print("Panic: the children number of BinaryOpNode is not 3!")
+                    print("错误: BinaryOpNode 应该有 3 个孩子")
                     sys.exit(1)
                 else:
                     leftValue = self.getArithmeticValue(node.children[0])
@@ -62,7 +62,7 @@ class SemanticsAnalyze(object):
             elif node.__class__.__name__ == 'IdNode':
                 idNodeValue = self.symbol_table_obj.symbolTable.get(node.name).value
                 if idNodeValue is None:
-                    print("[At semantics]: the variable %s is used uninitialized!" % node.name)
+                    print("[语义分析错误]: 变量 %s 未初始化的使用" % node.name)
                     sys.exit(1)
                 else:
                     return idNodeValue

@@ -40,18 +40,10 @@ class continueCondJump(UnCondJump_IC):
         self.NXQ = None
 
 
-# 废弃这种设计
-# class CondJump_IC(IC):
-#     '''条件跳转'''
-#     def __init__(self):
-#         self.action = 'cj'
-#         self.leftOperand = None
-#         self.rightOperand = None
-#         self.NXQ = None
-
-
 class CondJump_IC(IC):
-    '''条件跳转'''
+    '''
+    条件跳转
+    '''
     def __init__(self):
         self.action = 'jc'  # jc表示条件跳转
         self.condition = None
@@ -196,7 +188,7 @@ class IC_Generator(object):
                 breakLabelStr = breakLabel + ':'
                 self.intermediateCodeBuf.append(breakLabelStr)
 
-                return  # 一定要加上！
+                return
 
             if node.__class__.__name__ == 'WhileNode':
 
@@ -424,7 +416,7 @@ class IC_Generator(object):
                 for child in node.children:
                     # return self.generate(child)
                     self.generate(child)
-                return  # 这里也一定要加上！
+                return
 
             # 增加对continue的支持
             if node == 'continue':
@@ -509,7 +501,7 @@ class IC_Generator(object):
         if len(self.intermediateCodeBuf) == 0:
             self.generate(self.rootNode)
         else:
-            outputDir = '/root/workspace/Compilers/zcrCompiler/output/'
+            outputDir = '/root/workspace/Compilers/compilingPrinciple/'
             IC_File = 'IC.output'  # 保存四元式的文件
             ICF_path = outputDir + IC_File
             with open(ICF_path, 'w', encoding='utf-8') as IC_F:
