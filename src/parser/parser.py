@@ -35,10 +35,14 @@ def p_SubProg(p):
 
 
 def p_error(p):
-    print("语法分析错误:")
-    print('\t不能接受的Token "{}" 位于 {}. 总位置: {})'.format(p.value, p.lineno,
-                                                     p.lexpos))
-    return p.lexer.token()
+    print('[语法分析] 不能接受的Token "{}" 位于 {}. 总位置: {})'.format(
+        p.value, p.lineno, p.lexpos))
+    # p.lexer.mparser.statestack.pop()
+    # p.lexer.mparser.symstack.pop()
+    # p.lexer.mparser.state = p.lexer.mparser.statestack[-1]
+    # p.lexer.mparser.errorok = True
+    # return p.lexer.token()
+    pass
 
 
 def p_empty(p):

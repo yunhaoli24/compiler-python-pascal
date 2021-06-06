@@ -6,29 +6,6 @@ begin
 	// i := -7;
 	// k := i*9 + 1;
 	// // p := 404;
-	// if (i <= 20)
-	// then
-	// begin
-	// 	i := i + 1;
-	// end
-	// else
-	// 	i := i + 2;
-	// number := 1;
-	// while (number > 0) do
-	// begin
-	//    sum := 200;
-	//    number := 26;
-	//    sum := sum + number;
-	//    number := number - 2;
-	//    if (sum = 200)
-	//    then
-	//        break;
-
-	//    if (sum = 500)
-	//    then
-	//    	   continue;
-
-	//    sum := 300;
 	/** abc*d**/
 	j := (9 + 3) - 8;
 	i := 4;

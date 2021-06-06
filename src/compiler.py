@@ -2,6 +2,7 @@ import sys
 import os
 import ply.lex as lex
 import ply.yacc as yacc
+import logging
 from src.lexer import tokrules
 from src.parser import parser
 from src.parser import AST_Dumper
@@ -12,6 +13,10 @@ from src.intermediate_code.Gen_IntermediateCode import IC_Generator
 
 class Compiler(object):
     def __init__(self, file_path, debug):
+        logging.basicConfig(level=logging.DEBUG,
+                            filename="parselog.txt",
+                            filemode="w",
+                            format="%(message)s")
         self.data = self.read_file(file_path)
         self.debug = debug
 
@@ -24,9 +29,11 @@ class Compiler(object):
             for token in self.lexer:
                 print(token)
 
+        self.lexer.mparser = self.parser
         Abstract_Syntax_Tree = self.parser.parse(input=self.data,
                                                  lexer=self.lexer,
-                                                 tracking=True)
+                                                 tracking=True,
+                                                 debug=logging.getLogger())
         # 打印抽象语法树
         print('+' * 43 + ' 抽象语法树 ' + '+' * 41)
         AST_Dumper.showNode(Abstract_Syntax_Tree, 0)

@@ -150,6 +150,14 @@ def t_COMMENT(t):
     pass
 
 
+def t_CHINESE(t):
+    r'[\u4e00-\u9fa5]'
+    t.lexer.lineno += (t.value.count("\n"))
+    t.endlexpos = t.lexpos + len(t.value)
+    print("[词法分析] 第{} 行 忽略中文 '{}' ".format(t.lexer.lineno, t.value.lower()))
+    pass
+
+
 # 识别字符(取决于特定的实现)
 # 只支持转义字符：'\t' '\n' and '\\'
 def t_CHAR(t):
