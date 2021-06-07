@@ -18,11 +18,15 @@ class SemanticsAnalyze(object):
                 # print(node.children[-1])    # 例如：Unary_Operation、Binary_Operation
                 # print(node.children[0].name)  # 例如：i
                 if self.symbol_table_obj.symbolTable.get(node.children[0].name) is None:    # 没有查到该符号
-                    print("[语义分析错误]: 变量 %s 未经定义便使用!" % node.children[0].name)
+                    print("[语义分析]: 变量 %s 未经定义便使用!" % node.children[0].name)
                     sys.exit(1)
                 else:   # 该符号在符号表里有定义
                     # print(node.children[-1])
-                    self.symbol_table_obj.symbolTable[node.children[0].name].value = self.getArithmeticValue(node.children[-1])
+                    value = self.getArithmeticValue(node.children[-1])
+                    if value is not None:
+                        self.symbol_table_obj.symbolTable[node.children[0].name].value = value 
+                        node.expr = value
+                    # self.symbol_table_obj.symbolTable[node.children[0].name].value = self.getArithmeticValue(node.children[-1])
 
         if isinstance(node, AST.Node):
             for child in node.children:
@@ -62,10 +66,11 @@ class SemanticsAnalyze(object):
             elif node.__class__.__name__ == 'IdNode':
                 idNodeValue = self.symbol_table_obj.symbolTable.get(node.name).value
                 if idNodeValue is None:
-                    print("[语义分析错误]: 变量 %s 未初始化的使用" % node.name)
+                    print("[语义分析]: 变量 %s 未初始化的使用" % node.name)
                     sys.exit(1)
                 else:
-                    return idNodeValue
+                    return None
+                    # return idNodeValue
             elif isinstance(node, int) or isinstance(node, float):
                 # print("is int or float: %d" % node)
                 return node

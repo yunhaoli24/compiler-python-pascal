@@ -5,417 +5,1115 @@ Stack  : . LexToken(PROGRAM,'program',1,0)
 Action : Shift and goto state 2
 
 State  : 2
-Stack  : PROGRAM . LexToken(ID,'compilingPrinciple',1,8)
+Stack  : PROGRAM . LexToken(ID,'zcrProgram',1,8)
 Action : Shift and goto state 3
 
 State  : 3
-Stack  : PROGRAM ID . LexToken(SEMICOLON,';',1,26)
+Stack  : PROGRAM ID . LexToken(SEMICOLON,';',1,18)
 Action : Shift and goto state 4
 
 State  : 4
-Stack  : PROGRAM ID SEMICOLON . LexToken(VAR,'var',2,29)
+Stack  : PROGRAM ID SEMICOLON . LexToken(VAR,'var',2,20)
 Action : Shift and goto state 7
 
 State  : 7
-Stack  : PROGRAM ID SEMICOLON VAR . LexToken(ID,'i',2,33)
+Stack  : PROGRAM ID SEMICOLON VAR . LexToken(ID,'i',2,24)
 Action : Shift and goto state 19
 
 State  : 19
-Stack  : PROGRAM ID SEMICOLON VAR ID . LexToken(COMMA,',',2,34)
+Stack  : PROGRAM ID SEMICOLON VAR ID . LexToken(COMMA,',',2,25)
 Action : Reduce rule [Variable -> ID] with ['i'] and goto state 17
-Result : <IdNode @ 0x7f70735147d0> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+Result : <IdNode @ 0x7f2bb3e9f630> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
 
 State  : 17
-Stack  : PROGRAM ID SEMICOLON VAR Variable . LexToken(COMMA,',',2,34)
-Action : Reduce rule [VarList -> Variable] with [<IdNode @ 0x7f70735147d0>] and goto state 15
-Result : <VarListNode @ 0x7f7073514850> (<src.parser.Abstract_Syntax_Tree.VarList ...)
+Stack  : PROGRAM ID SEMICOLON VAR Variable . LexToken(COMMA,',',2,25)
+Action : Reduce rule [VarList -> Variable] with [<IdNode @ 0x7f2bb3e9f630>] and goto state 15
+Result : <VarListNode @ 0x7f2bb3e9f588> (<src.parser.Abstract_Syntax_Tree.VarList ...)
 
 State  : 15
-Stack  : PROGRAM ID SEMICOLON VAR VarList . LexToken(COMMA,',',2,34)
+Stack  : PROGRAM ID SEMICOLON VAR VarList . LexToken(COMMA,',',2,25)
 Action : Shift and goto state 27
 
 State  : 27
-Stack  : PROGRAM ID SEMICOLON VAR VarList COMMA . LexToken(ID,'k',2,35)
+Stack  : PROGRAM ID SEMICOLON VAR VarList COMMA . LexToken(ID,'j',2,27)
 Action : Shift and goto state 19
 
 State  : 19
-Stack  : PROGRAM ID SEMICOLON VAR VarList COMMA ID . LexToken(COLON,':',2,36)
-Action : Reduce rule [Variable -> ID] with ['k'] and goto state 70
-Result : <IdNode @ 0x7f7073514790> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+Stack  : PROGRAM ID SEMICOLON VAR VarList COMMA ID . LexToken(COMMA,',',2,28)
+Action : Reduce rule [Variable -> ID] with ['j'] and goto state 70
+Result : <IdNode @ 0x7f2bb3ed4ef0> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
 
 State  : 70
-Stack  : PROGRAM ID SEMICOLON VAR VarList COMMA Variable . LexToken(COLON,':',2,36)
-Action : Reduce rule [VarList -> VarList COMMA Variable] with [<VarListNode @ 0x7f7073514850>,',',<IdNode @ 0x7f7073514790>] and goto state 15
-Result : <VarListNode @ 0x7f70735149d0> (<src.parser.Abstract_Syntax_Tree.VarList ...)
+Stack  : PROGRAM ID SEMICOLON VAR VarList COMMA Variable . LexToken(COMMA,',',2,28)
+Action : Reduce rule [VarList -> VarList COMMA Variable] with [<VarListNode @ 0x7f2bb3e9f588>,',',<IdNode @ 0x7f2bb3ed4ef0>] and goto state 15
+Result : <VarListNode @ 0x7f2bb3e9f748> (<src.parser.Abstract_Syntax_Tree.VarList ...)
 
 State  : 15
-Stack  : PROGRAM ID SEMICOLON VAR VarList . LexToken(COLON,':',2,36)
+Stack  : PROGRAM ID SEMICOLON VAR VarList . LexToken(COMMA,',',2,28)
+Action : Shift and goto state 27
+
+State  : 27
+Stack  : PROGRAM ID SEMICOLON VAR VarList COMMA . LexToken(ID,'k',2,30)
+Action : Shift and goto state 19
+
+State  : 19
+Stack  : PROGRAM ID SEMICOLON VAR VarList COMMA ID . LexToken(COLON,':',2,31)
+Action : Reduce rule [Variable -> ID] with ['k'] and goto state 70
+Result : <IdNode @ 0x7f2bb3e9f6a0> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 70
+Stack  : PROGRAM ID SEMICOLON VAR VarList COMMA Variable . LexToken(COLON,':',2,31)
+Action : Reduce rule [VarList -> VarList COMMA Variable] with [<VarListNode @ 0x7f2bb3e9f748>,',',<IdNode @ 0x7f2bb3e9f6a0>] and goto state 15
+Result : <VarListNode @ 0x7f2bb3e9f898> (<src.parser.Abstract_Syntax_Tree.VarList ...)
+
+State  : 15
+Stack  : PROGRAM ID SEMICOLON VAR VarList . LexToken(COLON,':',2,31)
 Action : Shift and goto state 26
 
 State  : 26
-Stack  : PROGRAM ID SEMICOLON VAR VarList COLON . LexToken(INTEGER,'integer',2,37)
+Stack  : PROGRAM ID SEMICOLON VAR VarList COLON . LexToken(INTEGER,'integer',2,33)
 Action : Shift and goto state 66
 
 State  : 66
-Stack  : PROGRAM ID SEMICOLON VAR VarList COLON INTEGER . LexToken(SEMICOLON,';',2,44)
+Stack  : PROGRAM ID SEMICOLON VAR VarList COLON INTEGER . LexToken(SEMICOLON,';',2,40)
 Action : Reduce rule [Type -> INTEGER] with ['integer'] and goto state 65
-Result : <str @ 0x7f7073514a70> ('integer')
+Result : <str @ 0x7f2bb3e9f5a8> ('integer')
 
 State  : 65
-Stack  : PROGRAM ID SEMICOLON VAR VarList COLON Type . LexToken(SEMICOLON,';',2,44)
-Action : Reduce rule [VarDefState -> VarList COLON Type] with [<VarListNode @ 0x7f70735149d0>,':','integer'] and goto state 14
-Result : <VarDefStateNode @ 0x7f7073514b50> (<src.parser.Abstract_Syntax_Tree.VarDefS ...)
+Stack  : PROGRAM ID SEMICOLON VAR VarList COLON Type . LexToken(SEMICOLON,';',2,40)
+Action : Reduce rule [VarDefState -> VarList COLON Type] with [<VarListNode @ 0x7f2bb3e9f898>,':','integer'] and goto state 14
+Result : <VarDefStateNode @ 0x7f2bb3e9f8d0> (<src.parser.Abstract_Syntax_Tree.VarDefS ...)
 
 State  : 14
-Stack  : PROGRAM ID SEMICOLON VAR VarDefState . LexToken(SEMICOLON,';',2,44)
-Action : Reduce rule [VarDefList -> VarDefState] with [<VarDefStateNode @ 0x7f7073514b50>] and goto state 13
-Result : <VarDefListNode @ 0x7f7073514a10> (<src.parser.Abstract_Syntax_Tree.VarDefL ...)
+Stack  : PROGRAM ID SEMICOLON VAR VarDefState . LexToken(SEMICOLON,';',2,40)
+Action : Reduce rule [VarDefList -> VarDefState] with [<VarDefStateNode @ 0x7f2bb3e9f8d0>] and goto state 13
+Result : <VarDefListNode @ 0x7f2bb3e9f668> (<src.parser.Abstract_Syntax_Tree.VarDefL ...)
 
 State  : 13
-Stack  : PROGRAM ID SEMICOLON VAR VarDefList . LexToken(SEMICOLON,';',2,44)
+Stack  : PROGRAM ID SEMICOLON VAR VarDefList . LexToken(SEMICOLON,';',2,40)
 Action : Shift and goto state 25
 
 State  : 25
-Stack  : PROGRAM ID SEMICOLON VAR VarDefList SEMICOLON . LexToken(BEGIN,'begin',3,47)
-Action : Reduce rule [VarDef -> VAR VarDefList SEMICOLON] with ['var',<VarDefListNode @ 0x7f7073514a10>,';'] and goto state 6
-Result : <VarDefNode @ 0x7f7073514990> (<src.parser.Abstract_Syntax_Tree.VarDefN ...)
+Stack  : PROGRAM ID SEMICOLON VAR VarDefList SEMICOLON . LexToken(ID,'number',3,46)
+Action : Shift and goto state 19
+
+State  : 19
+Stack  : PROGRAM ID SEMICOLON VAR VarDefList SEMICOLON ID . LexToken(COMMA,',',3,52)
+Action : Reduce rule [Variable -> ID] with ['number'] and goto state 17
+Result : <IdNode @ 0x7f2bb3e9f780> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 17
+Stack  : PROGRAM ID SEMICOLON VAR VarDefList SEMICOLON Variable . LexToken(COMMA,',',3,52)
+Action : Reduce rule [VarList -> Variable] with [<IdNode @ 0x7f2bb3e9f780>] and goto state 15
+Result : <VarListNode @ 0x7f2bb3e9f9e8> (<src.parser.Abstract_Syntax_Tree.VarList ...)
+
+State  : 15
+Stack  : PROGRAM ID SEMICOLON VAR VarDefList SEMICOLON VarList . LexToken(COMMA,',',3,52)
+Action : Shift and goto state 27
+
+State  : 27
+Stack  : PROGRAM ID SEMICOLON VAR VarDefList SEMICOLON VarList COMMA . LexToken(ID,'sum',3,54)
+Action : Shift and goto state 19
+
+State  : 19
+Stack  : PROGRAM ID SEMICOLON VAR VarDefList SEMICOLON VarList COMMA ID . LexToken(COLON,':',3,57)
+Action : Reduce rule [Variable -> ID] with ['sum'] and goto state 70
+Result : <IdNode @ 0x7f2bb3e9f908> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 70
+Stack  : PROGRAM ID SEMICOLON VAR VarDefList SEMICOLON VarList COMMA Variable . LexToken(COLON,':',3,57)
+Action : Reduce rule [VarList -> VarList COMMA Variable] with [<VarListNode @ 0x7f2bb3e9f9e8>,',',<IdNode @ 0x7f2bb3e9f908>] and goto state 15
+Result : <VarListNode @ 0x7f2bb3e9fba8> (<src.parser.Abstract_Syntax_Tree.VarList ...)
+
+State  : 15
+Stack  : PROGRAM ID SEMICOLON VAR VarDefList SEMICOLON VarList . LexToken(COLON,':',3,57)
+Action : Shift and goto state 26
+
+State  : 26
+Stack  : PROGRAM ID SEMICOLON VAR VarDefList SEMICOLON VarList COLON . LexToken(REAL,'real',3,59)
+Action : Shift and goto state 67
+
+State  : 67
+Stack  : PROGRAM ID SEMICOLON VAR VarDefList SEMICOLON VarList COLON REAL . LexToken(SEMICOLON,';',3,63)
+Action : Reduce rule [Type -> REAL] with ['real'] and goto state 65
+Result : <str @ 0x7f2bb3e9fd50> ('real')
+
+State  : 65
+Stack  : PROGRAM ID SEMICOLON VAR VarDefList SEMICOLON VarList COLON Type . LexToken(SEMICOLON,';',3,63)
+Action : Reduce rule [VarDefState -> VarList COLON Type] with [<VarListNode @ 0x7f2bb3e9fba8>,':','real'] and goto state 64
+Result : <VarDefStateNode @ 0x7f2bb3e9fda0> (<src.parser.Abstract_Syntax_Tree.VarDefS ...)
+
+State  : 64
+Stack  : PROGRAM ID SEMICOLON VAR VarDefList SEMICOLON VarDefState . LexToken(SEMICOLON,';',3,63)
+Action : Reduce rule [VarDefList -> VarDefList SEMICOLON VarDefState] with [<VarDefListNode @ 0x7f2bb3e9f668>,';',<VarDefStateNode @ 0x7f2bb3e9fda0>] and goto state 13
+Result : <VarDefListNode @ 0x7f2bb3e9fc18> (<src.parser.Abstract_Syntax_Tree.VarDefL ...)
+
+State  : 13
+Stack  : PROGRAM ID SEMICOLON VAR VarDefList . LexToken(SEMICOLON,';',3,63)
+Action : Shift and goto state 25
+
+State  : 25
+Stack  : PROGRAM ID SEMICOLON VAR VarDefList SEMICOLON . LexToken(BEGIN,'begin',5,85)
+Action : Reduce rule [VarDef -> VAR VarDefList SEMICOLON] with ['var',<VarDefListNode @ 0x7f2bb3e9fc18>,';'] and goto state 6
+Result : <VarDefNode @ 0x7f2bb3e9f668> (<src.parser.Abstract_Syntax_Tree.VarDefN ...)
 
 State  : 6
-Stack  : PROGRAM ID SEMICOLON VarDef . LexToken(BEGIN,'begin',3,47)
+Stack  : PROGRAM ID SEMICOLON VarDef . LexToken(BEGIN,'begin',5,85)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 11
-Result : <NoneType @ 0x56185d824f70> (None)
+Result : <NoneType @ 0x7f2bb606d9d0> (None)
 
 State  : 11
 Defaulted state 11: Reduce using 6
-Stack  : PROGRAM ID SEMICOLON VarDef empty . LexToken(BEGIN,'begin',3,47)
+Stack  : PROGRAM ID SEMICOLON VarDef empty . LexToken(BEGIN,'begin',5,85)
 Action : Reduce rule [function_definition -> empty] with [None] and goto state 9
-Result : <NoneType @ 0x56185d824f70> (None)
+Result : <NoneType @ 0x7f2bb606d9d0> (None)
 
 State  : 9
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition . LexToken(BEGIN,'begin',3,47)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition . LexToken(BEGIN,'begin',5,85)
 Action : Shift and goto state 21
 
 State  : 21
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN . LexToken(ID,'i',4,54)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN . LexToken(ID,'j',10,154)
 Action : Shift and goto state 19
 
 State  : 19
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN ID . LexToken(ASSIGNMENT,':=',4,55)
-Action : Reduce rule [Variable -> ID] with ['i'] and goto state 54
-Result : <IdNode @ 0x7f7073514cd0> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN ID . LexToken(ASSIGNMENT,':=',10,156)
+Action : Reduce rule [Variable -> ID] with ['j'] and goto state 54
+Result : <IdNode @ 0x7f2bb3e9fa90> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
 
 State  : 54
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable . LexToken(ASSIGNMENT,':=',4,55)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable . LexToken(ASSIGNMENT,':=',10,156)
 Action : Shift and goto state 86
 
 State  : 86
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT . LexToken(INT_NUMBER,5,4,57)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT . LexToken(LPAREN,'(',10,159)
+Action : Shift and goto state 90
+
+State  : 90
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT LPAREN . LexToken(INT_NUMBER,9,10,160)
 Action : Shift and goto state 82
 
 State  : 82
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT INT_NUMBER . LexToken(SEMICOLON,';',4,58)
-Action : Reduce rule [const -> INT_NUMBER] with [5] and goto state 81
-Result : <int @ 0x56185d846380> (5)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT LPAREN INT_NUMBER . LexToken(PLUS,'+',10,162)
+Action : Reduce rule [const -> INT_NUMBER] with [9] and goto state 81
+Result : <int @ 0x7f2bb60a25e0> (9)
 
 State  : 81
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT const . LexToken(SEMICOLON,';',4,58)
-Action : Reduce rule [Expr -> const] with [5] and goto state 118
-Result : <int @ 0x56185d846380> (5)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT LPAREN const . LexToken(PLUS,'+',10,162)
+Action : Reduce rule [Expr -> const] with [9] and goto state 120
+Result : <int @ 0x7f2bb60a25e0> (9)
+
+State  : 120
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT LPAREN Expr . LexToken(PLUS,'+',10,162)
+Action : Shift and goto state 108
+
+State  : 108
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT LPAREN Expr PLUS . LexToken(INT_NUMBER,3,10,164)
+Action : Shift and goto state 82
+
+State  : 82
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT LPAREN Expr PLUS INT_NUMBER . LexToken(RPAREN,')',10,165)
+Action : Reduce rule [const -> INT_NUMBER] with [3] and goto state 81
+Result : <int @ 0x7f2bb60a2520> (3)
+
+State  : 81
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT LPAREN Expr PLUS const . LexToken(RPAREN,')',10,165)
+Action : Reduce rule [Expr -> const] with [3] and goto state 139
+Result : <int @ 0x7f2bb60a2520> (3)
+
+State  : 139
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT LPAREN Expr PLUS Expr . LexToken(RPAREN,')',10,165)
+Action : Reduce rule [Expr -> Expr PLUS Expr] with [9,'+',3] and goto state 120
+Result : <BinaryOpNode @ 0x7f2bb3e9feb8> (<src.parser.Abstract_Syntax_Tree.BinaryO ...)
+
+State  : 120
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT LPAREN Expr . LexToken(RPAREN,')',10,165)
+Action : Shift and goto state 144
+
+State  : 144
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT LPAREN Expr RPAREN . LexToken(MINUS,'-',10,167)
+Action : Reduce rule [Expr -> LPAREN Expr RPAREN] with ['(',<BinaryOpNode @ 0x7f2bb3e9feb8>,')'] and goto state 118
+Result : <BinaryOpNode @ 0x7f2bb3e9feb8> (<src.parser.Abstract_Syntax_Tree.BinaryO ...)
 
 State  : 118
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT Expr . LexToken(SEMICOLON,';',4,58)
-Action : Reduce rule [assignment_statement -> Variable ASSIGNMENT Expr] with [<IdNode @ 0x7f7073514cd0>,':=',5] and goto state 41
-Result : <AssignmentNode @ 0x7f7073723f90> (<src.parser.Abstract_Syntax_Tree.Assignm ...)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT Expr . LexToken(MINUS,'-',10,167)
+Action : Shift and goto state 109
+
+State  : 109
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT Expr MINUS . LexToken(INT_NUMBER,8,10,169)
+Action : Shift and goto state 82
+
+State  : 82
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT Expr MINUS INT_NUMBER . LexToken(SEMICOLON,';',10,170)
+Action : Reduce rule [const -> INT_NUMBER] with [8] and goto state 81
+Result : <int @ 0x7f2bb60a25c0> (8)
+
+State  : 81
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT Expr MINUS const . LexToken(SEMICOLON,';',10,170)
+Action : Reduce rule [Expr -> const] with [8] and goto state 140
+Result : <int @ 0x7f2bb60a25c0> (8)
+
+State  : 140
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT Expr MINUS Expr . LexToken(SEMICOLON,';',10,170)
+Action : Reduce rule [Expr -> Expr MINUS Expr] with [<BinaryOpNode @ 0x7f2bb3e9feb8>,'-',8] and goto state 118
+Result : <BinaryOpNode @ 0x7f2bb3e9f518> (<src.parser.Abstract_Syntax_Tree.BinaryO ...)
+
+State  : 118
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Variable ASSIGNMENT Expr . LexToken(SEMICOLON,';',10,170)
+Action : Reduce rule [assignment_statement -> Variable ASSIGNMENT Expr] with [<IdNode @ 0x7f2bb3e9fa90>,':=',<BinaryOpNode @ 0x7f2bb3e9f518>] and goto state 41
+Result : <AssignmentNode @ 0x7f2bb3e9ff60> (<src.parser.Abstract_Syntax_Tree.Assignm ...)
 
 State  : 41
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN assignment_statement . LexToken(SEMICOLON,';',4,58)
-Action : Reduce rule [non_labeled_closed_statement -> assignment_statement] with [<AssignmentNode @ 0x7f7073723f90>] and goto state 36
-Result : <NoneLabeledClosedStatementNode @ 0x7f7073514bd0> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN assignment_statement . LexToken(SEMICOLON,';',10,170)
+Action : Reduce rule [non_labeled_closed_statement -> assignment_statement] with [<AssignmentNode @ 0x7f2bb3e9ff60>] and goto state 36
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb3e9f6d8> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
 
 State  : 36
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN non_labeled_closed_statement . LexToken(SEMICOLON,';',4,58)
-Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f7073514bd0>] and goto state 33
-Result : <NoneLabeledClosedStatementNode @ 0x7f7073514bd0> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN non_labeled_closed_statement . LexToken(SEMICOLON,';',10,170)
+Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb3e9f6d8>] and goto state 33
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb3e9f6d8> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
 
 State  : 33
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN closed_statement . LexToken(SEMICOLON,';',4,58)
-Action : Reduce rule [Statement -> closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f7073514bd0>] and goto state 31
-Result : <NoneLabeledClosedStatementNode @ 0x7f7073514bd0> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN closed_statement . LexToken(SEMICOLON,';',10,170)
+Action : Reduce rule [Statement -> closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb3e9f6d8>] and goto state 31
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb3e9f6d8> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
 
 State  : 31
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Statement . LexToken(SEMICOLON,';',4,58)
-Action : Reduce rule [StateList -> Statement] with [<NoneLabeledClosedStatementNode @ 0x7f7073514bd0>] and goto state 30
-Result : <StateListNode @ 0x7f7073514750> (<src.parser.Abstract_Syntax_Tree.StateLi ...)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN Statement . LexToken(SEMICOLON,';',10,170)
+Action : Reduce rule [StateList -> Statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb3e9f6d8>] and goto state 30
+Result : <StateListNode @ 0x7f2bb3e9ff28> (<src.parser.Abstract_Syntax_Tree.StateLi ...)
 
 State  : 30
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList . LexToken(SEMICOLON,';',4,58)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList . LexToken(SEMICOLON,';',10,170)
 Action : Shift and goto state 73
 
 State  : 73
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON . LexToken(ID,'k',5,61)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON . LexToken(ID,'i',11,173)
 Action : Shift and goto state 19
 
 State  : 19
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON ID . LexToken(ASSIGNMENT,':=',5,62)
-Action : Reduce rule [Variable -> ID] with ['k'] and goto state 54
-Result : <IdNode @ 0x7f7073514d90> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
-
-State  : 54
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable . LexToken(ASSIGNMENT,':=',5,62)
-Action : Shift and goto state 86
-
-State  : 86
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT . LexToken(INT_NUMBER,3,5,64)
-Action : Shift and goto state 82
-
-State  : 82
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT INT_NUMBER . LexToken(PLUS,'+',5,65)
-Action : Reduce rule [const -> INT_NUMBER] with [3] and goto state 81
-Result : <int @ 0x56185d846340> (3)
-
-State  : 81
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT const . LexToken(PLUS,'+',5,65)
-Action : Reduce rule [Expr -> const] with [3] and goto state 118
-Result : <int @ 0x56185d846340> (3)
-
-State  : 118
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr . LexToken(PLUS,'+',5,65)
-Action : Shift and goto state 108
-
-State  : 108
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr PLUS . LexToken(INT_NUMBER,4,5,66)
-Action : Shift and goto state 82
-
-State  : 82
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr PLUS INT_NUMBER . LexToken(SEMICOLON,';',5,67)
-Action : Reduce rule [const -> INT_NUMBER] with [4] and goto state 81
-Result : <int @ 0x56185d846360> (4)
-
-State  : 81
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr PLUS const . LexToken(SEMICOLON,';',5,67)
-Action : Reduce rule [Expr -> const] with [4] and goto state 139
-Result : <int @ 0x56185d846360> (4)
-
-State  : 139
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr PLUS Expr . LexToken(SEMICOLON,';',5,67)
-Action : Reduce rule [Expr -> Expr PLUS Expr] with [3,'+',4] and goto state 118
-Result : <BinaryOpNode @ 0x7f7073514f50> (<src.parser.Abstract_Syntax_Tree.BinaryO ...)
-
-State  : 118
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr . LexToken(SEMICOLON,';',5,67)
-Action : Reduce rule [assignment_statement -> Variable ASSIGNMENT Expr] with [<IdNode @ 0x7f7073514d90>,':=',<BinaryOpNode @ 0x7f7073514f50>] and goto state 41
-Result : <AssignmentNode @ 0x7f7073514e50> (<src.parser.Abstract_Syntax_Tree.Assignm ...)
-
-State  : 41
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON assignment_statement . LexToken(SEMICOLON,';',5,67)
-Action : Reduce rule [non_labeled_closed_statement -> assignment_statement] with [<AssignmentNode @ 0x7f7073514e50>] and goto state 36
-Result : <NoneLabeledClosedStatementNode @ 0x7f7073514c10> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
-
-State  : 36
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON non_labeled_closed_statement . LexToken(SEMICOLON,';',5,67)
-Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f7073514c10>] and goto state 33
-Result : <NoneLabeledClosedStatementNode @ 0x7f7073514c10> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
-
-State  : 33
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON closed_statement . LexToken(SEMICOLON,';',5,67)
-Action : Reduce rule [Statement -> closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f7073514c10>] and goto state 96
-Result : <NoneLabeledClosedStatementNode @ 0x7f7073514c10> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
-
-State  : 96
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Statement . LexToken(SEMICOLON,';',5,67)
-Action : Reduce rule [StateList -> StateList SEMICOLON Statement] with [<StateListNode @ 0x7f7073514750>,';',<NoneLabeledClosedStatementNode @ 0x7f7073514c10>] and goto state 30
-Result : <StateListNode @ 0x7f7073514dd0> (<src.parser.Abstract_Syntax_Tree.StateLi ...)
-
-State  : 30
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList . LexToken(SEMICOLON,';',5,67)
-Action : Shift and goto state 73
-
-State  : 73
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON . LexToken(ID,'i',6,71)
-Action : Shift and goto state 19
-
-State  : 19
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON ID . LexToken(ASSIGNMENT,':=',6,73)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON ID . LexToken(ASSIGNMENT,':=',11,175)
 Action : Reduce rule [Variable -> ID] with ['i'] and goto state 54
-Result : <IdNode @ 0x7f7073514650> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+Result : <IdNode @ 0x7f2bb3082128> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
 
 State  : 54
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable . LexToken(ASSIGNMENT,':=',6,73)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable . LexToken(ASSIGNMENT,':=',11,175)
 Action : Shift and goto state 86
 
 State  : 86
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT . LexToken(ID,'i',6,76)
-Action : Shift and goto state 19
-
-State  : 19
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT ID . LexToken(PLUS,'+',6,78)
-Action : Reduce rule [Variable -> ID] with ['i'] and goto state 80
-Result : <IdNode @ 0x7f7073524190> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
-
-State  : 80
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT Variable . LexToken(PLUS,'+',6,78)
-Action : Reduce rule [Expr -> Variable] with [<IdNode @ 0x7f7073524190>] and goto state 118
-Result : <IdNode @ 0x7f7073524190> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
-
-State  : 118
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr . LexToken(PLUS,'+',6,78)
-Action : Shift and goto state 108
-
-State  : 108
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr PLUS . LexToken(ID,'k',6,80)
-Action : Shift and goto state 19
-
-State  : 19
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr PLUS ID . LexToken(SEMICOLON,';',6,81)
-Action : Reduce rule [Variable -> ID] with ['k'] and goto state 80
-Result : <IdNode @ 0x7f7073514d50> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
-
-State  : 80
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr PLUS Variable . LexToken(SEMICOLON,';',6,81)
-Action : Reduce rule [Expr -> Variable] with [<IdNode @ 0x7f7073514d50>] and goto state 139
-Result : <IdNode @ 0x7f7073514d50> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
-
-State  : 139
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr PLUS Expr . LexToken(SEMICOLON,';',6,81)
-Action : Reduce rule [Expr -> Expr PLUS Expr] with [<IdNode @ 0x7f7073524190>,'+',<IdNode @ 0x7f7073514d50>] and goto state 118
-Result : <BinaryOpNode @ 0x7f7073514f90> (<src.parser.Abstract_Syntax_Tree.BinaryO ...)
-
-State  : 118
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr . LexToken(SEMICOLON,';',6,81)
-Action : Reduce rule [assignment_statement -> Variable ASSIGNMENT Expr] with [<IdNode @ 0x7f7073514650>,':=',<BinaryOpNode @ 0x7f7073514f90>] and goto state 41
-Result : <AssignmentNode @ 0x7f7073514d10> (<src.parser.Abstract_Syntax_Tree.Assignm ...)
-
-State  : 41
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON assignment_statement . LexToken(SEMICOLON,';',6,81)
-Action : Reduce rule [non_labeled_closed_statement -> assignment_statement] with [<AssignmentNode @ 0x7f7073514d10>] and goto state 36
-Result : <NoneLabeledClosedStatementNode @ 0x7f7073524090> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
-
-State  : 36
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON non_labeled_closed_statement . LexToken(SEMICOLON,';',6,81)
-Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f7073524090>] and goto state 33
-Result : <NoneLabeledClosedStatementNode @ 0x7f7073524090> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
-
-State  : 33
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON closed_statement . LexToken(SEMICOLON,';',6,81)
-Action : Reduce rule [Statement -> closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f7073524090>] and goto state 96
-Result : <NoneLabeledClosedStatementNode @ 0x7f7073524090> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
-
-State  : 96
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Statement . LexToken(SEMICOLON,';',6,81)
-Action : Reduce rule [StateList -> StateList SEMICOLON Statement] with [<StateListNode @ 0x7f7073514dd0>,';',<NoneLabeledClosedStatementNode @ 0x7f7073524090>] and goto state 30
-Result : <StateListNode @ 0x7f70735240d0> (<src.parser.Abstract_Syntax_Tree.StateLi ...)
-
-State  : 30
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList . LexToken(SEMICOLON,';',6,81)
-Action : Shift and goto state 73
-
-State  : 73
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON . LexToken(ID,'k',8,92)
-Action : Shift and goto state 19
-
-State  : 19
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON ID . LexToken(ASSIGNMENT,':=',8,94)
-Action : Reduce rule [Variable -> ID] with ['k'] and goto state 54
-Result : <IdNode @ 0x7f7073514690> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
-
-State  : 54
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable . LexToken(ASSIGNMENT,':=',8,94)
-Action : Shift and goto state 86
-
-State  : 86
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT . LexToken(INT_NUMBER,1999,8,97)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT . LexToken(INT_NUMBER,4,11,178)
 Action : Shift and goto state 82
 
 State  : 82
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT INT_NUMBER . LexToken(SEMICOLON,';',8,101)
-Action : Reduce rule [const -> INT_NUMBER] with [1999] and goto state 81
-Result : <int @ 0x7f70735788f0> (1999)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT INT_NUMBER . LexToken(SEMICOLON,';',11,179)
+Action : Reduce rule [const -> INT_NUMBER] with [4] and goto state 81
+Result : <int @ 0x7f2bb60a2540> (4)
 
 State  : 81
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT const . LexToken(SEMICOLON,';',8,101)
-Action : Reduce rule [Expr -> const] with [1999] and goto state 118
-Result : <int @ 0x7f70735788f0> (1999)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT const . LexToken(SEMICOLON,';',11,179)
+Action : Reduce rule [Expr -> const] with [4] and goto state 118
+Result : <int @ 0x7f2bb60a2540> (4)
 
 State  : 118
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr . LexToken(SEMICOLON,';',8,101)
-Action : Reduce rule [assignment_statement -> Variable ASSIGNMENT Expr] with [<IdNode @ 0x7f7073514690>,':=',1999] and goto state 41
-Result : <AssignmentNode @ 0x7f7073514ed0> (<src.parser.Abstract_Syntax_Tree.Assignm ...)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr . LexToken(SEMICOLON,';',11,179)
+Action : Reduce rule [assignment_statement -> Variable ASSIGNMENT Expr] with [<IdNode @ 0x7f2bb3082128>,':=',4] and goto state 41
+Result : <AssignmentNode @ 0x7f2bb3082320> (<src.parser.Abstract_Syntax_Tree.Assignm ...)
 
 State  : 41
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON assignment_statement . LexToken(SEMICOLON,';',8,101)
-Action : Reduce rule [non_labeled_closed_statement -> assignment_statement] with [<AssignmentNode @ 0x7f7073514ed0>] and goto state 36
-Result : <NoneLabeledClosedStatementNode @ 0x7f70735242d0> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON assignment_statement . LexToken(SEMICOLON,';',11,179)
+Action : Reduce rule [non_labeled_closed_statement -> assignment_statement] with [<AssignmentNode @ 0x7f2bb3082320>] and goto state 36
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb3082198> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
 
 State  : 36
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON non_labeled_closed_statement . LexToken(SEMICOLON,';',8,101)
-Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f70735242d0>] and goto state 33
-Result : <NoneLabeledClosedStatementNode @ 0x7f70735242d0> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON non_labeled_closed_statement . LexToken(SEMICOLON,';',11,179)
+Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb3082198>] and goto state 33
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb3082198> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
 
 State  : 33
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON closed_statement . LexToken(SEMICOLON,';',8,101)
-Action : Reduce rule [Statement -> closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f70735242d0>] and goto state 96
-Result : <NoneLabeledClosedStatementNode @ 0x7f70735242d0> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON closed_statement . LexToken(SEMICOLON,';',11,179)
+Action : Reduce rule [Statement -> closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb3082198>] and goto state 96
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb3082198> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
 
 State  : 96
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Statement . LexToken(SEMICOLON,';',8,101)
-Action : Reduce rule [StateList -> StateList SEMICOLON Statement] with [<StateListNode @ 0x7f70735240d0>,';',<NoneLabeledClosedStatementNode @ 0x7f70735242d0>] and goto state 30
-Result : <StateListNode @ 0x7f70735243d0> (<src.parser.Abstract_Syntax_Tree.StateLi ...)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Statement . LexToken(SEMICOLON,';',11,179)
+Action : Reduce rule [StateList -> StateList SEMICOLON Statement] with [<StateListNode @ 0x7f2bb3e9ff28>,';',<NoneLabeledClosedStatementNode @ 0x7f2bb3082198>] and goto state 30
+Result : <StateListNode @ 0x7f2bb30822e8> (<src.parser.Abstract_Syntax_Tree.StateLi ...)
 
 State  : 30
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList . LexToken(SEMICOLON,';',8,101)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList . LexToken(SEMICOLON,';',11,179)
 Action : Shift and goto state 73
 
 State  : 73
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON . LexToken(END,'end',9,103)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON . LexToken(FOR,'for',12,182)
+Action : Shift and goto state 53
+
+State  : 53
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR . LexToken(ID,'i',12,186)
+Action : Shift and goto state 19
+
+State  : 19
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR ID . LexToken(ASSIGNMENT,':=',12,188)
+Action : Reduce rule [Variable -> ID] with ['i'] and goto state 85
+Result : <IdNode @ 0x7f2bb3e9ff28> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 85
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable . LexToken(ASSIGNMENT,':=',12,188)
+Action : Shift and goto state 117
+
+State  : 117
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT . LexToken(INT_NUMBER,1,12,191)
+Action : Shift and goto state 82
+
+State  : 82
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT INT_NUMBER . LexToken(TO,'to',12,193)
+Action : Reduce rule [const -> INT_NUMBER] with [1] and goto state 81
+Result : <int @ 0x7f2bb60a24e0> (1)
+
+State  : 81
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT const . LexToken(TO,'to',12,193)
+Action : Reduce rule [Expr -> const] with [1] and goto state 148
+Result : <int @ 0x7f2bb60a24e0> (1)
+
+State  : 148
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT Expr . LexToken(TO,'to',12,193)
+Action : Reduce rule [initial_value -> Expr] with [1] and goto state 147
+Result : <int @ 0x7f2bb60a24e0> (1)
+
+State  : 147
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value . LexToken(TO,'to',12,193)
+Action : Shift and goto state 163
+
+State  : 163
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value TO . LexToken(INT_NUMBER,10,12,196)
+Action : Reduce rule [direction -> TO] with ['to'] and goto state 162
+Result : <str @ 0x7f2bb3082688> ('to')
+
+State  : 162
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction . LexToken(INT_NUMBER,10,12,196)
+Action : Shift and goto state 82
+
+State  : 82
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction INT_NUMBER . LexToken(DO,'do',12,199)
+Action : Reduce rule [const -> INT_NUMBER] with [10] and goto state 81
+Result : <int @ 0x7f2bb60a2600> (10)
+
+State  : 81
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction const . LexToken(DO,'do',12,199)
+Action : Reduce rule [Expr -> const] with [10] and goto state 177
+Result : <int @ 0x7f2bb60a2600> (10)
+
+State  : 177
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction Expr . LexToken(DO,'do',12,199)
+Action : Reduce rule [final_value -> Expr] with [10] and goto state 176
+Result : <int @ 0x7f2bb60a2600> (10)
+
+State  : 176
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value . LexToken(DO,'do',12,199)
+Action : Shift and goto state 187
+
+State  : 187
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO . LexToken(BEGIN,'begin',13,203)
+Action : Shift and goto state 21
+
+State  : 21
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN . LexToken(ID,'j',14,211)
+Action : Shift and goto state 19
+
+State  : 19
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN ID . LexToken(ASSIGNMENT,':=',14,213)
+Action : Reduce rule [Variable -> ID] with ['j'] and goto state 54
+Result : <IdNode @ 0x7f2bb3082400> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 54
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable . LexToken(ASSIGNMENT,':=',14,213)
+Action : Shift and goto state 86
+
+State  : 86
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT . LexToken(LPAREN,'(',14,216)
+Action : Shift and goto state 90
+
+State  : 90
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT LPAREN . LexToken(ID,'j',14,217)
+Action : Shift and goto state 19
+
+State  : 19
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT LPAREN ID . LexToken(PLUS,'+',14,219)
+Action : Reduce rule [Variable -> ID] with ['j'] and goto state 80
+Result : <IdNode @ 0x7f2bb3082828> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 80
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT LPAREN Variable . LexToken(PLUS,'+',14,219)
+Action : Reduce rule [Expr -> Variable] with [<IdNode @ 0x7f2bb3082828>] and goto state 120
+Result : <IdNode @ 0x7f2bb3082828> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 120
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT LPAREN Expr . LexToken(PLUS,'+',14,219)
+Action : Shift and goto state 108
+
+State  : 108
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT LPAREN Expr PLUS . LexToken(INT_NUMBER,2,14,221)
+Action : Shift and goto state 82
+
+State  : 82
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT LPAREN Expr PLUS INT_NUMBER . LexToken(RPAREN,')',14,222)
+Action : Reduce rule [const -> INT_NUMBER] with [2] and goto state 81
+Result : <int @ 0x7f2bb60a2500> (2)
+
+State  : 81
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT LPAREN Expr PLUS const . LexToken(RPAREN,')',14,222)
+Action : Reduce rule [Expr -> const] with [2] and goto state 139
+Result : <int @ 0x7f2bb60a2500> (2)
+
+State  : 139
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT LPAREN Expr PLUS Expr . LexToken(RPAREN,')',14,222)
+Action : Reduce rule [Expr -> Expr PLUS Expr] with [<IdNode @ 0x7f2bb3082828>,'+',2] and goto state 120
+Result : <BinaryOpNode @ 0x7f2bb3082940> (<src.parser.Abstract_Syntax_Tree.BinaryO ...)
+
+State  : 120
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT LPAREN Expr . LexToken(RPAREN,')',14,222)
+Action : Shift and goto state 144
+
+State  : 144
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT LPAREN Expr RPAREN . LexToken(TIMES,'*',14,224)
+Action : Reduce rule [Expr -> LPAREN Expr RPAREN] with ['(',<BinaryOpNode @ 0x7f2bb3082940>,')'] and goto state 118
+Result : <BinaryOpNode @ 0x7f2bb3082940> (<src.parser.Abstract_Syntax_Tree.BinaryO ...)
+
+State  : 118
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr . LexToken(TIMES,'*',14,224)
+Action : Shift and goto state 110
+
+State  : 110
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES . LexToken(LPAREN,'(',14,226)
+Action : Shift and goto state 90
+
+State  : 90
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN . LexToken(LPAREN,'(',14,227)
+Action : Shift and goto state 90
+
+State  : 90
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN LPAREN . LexToken(ID,'i',14,228)
+Action : Shift and goto state 19
+
+State  : 19
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN LPAREN ID . LexToken(PLUS,'+',14,230)
+Action : Reduce rule [Variable -> ID] with ['i'] and goto state 80
+Result : <IdNode @ 0x7f2bb30829b0> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 80
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN LPAREN Variable . LexToken(PLUS,'+',14,230)
+Action : Reduce rule [Expr -> Variable] with [<IdNode @ 0x7f2bb30829b0>] and goto state 120
+Result : <IdNode @ 0x7f2bb30829b0> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 120
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN LPAREN Expr . LexToken(PLUS,'+',14,230)
+Action : Shift and goto state 108
+
+State  : 108
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN LPAREN Expr PLUS . LexToken(INT_NUMBER,6,14,232)
+Action : Shift and goto state 82
+
+State  : 82
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN LPAREN Expr PLUS INT_NUMBER . LexToken(RPAREN,')',14,233)
+Action : Reduce rule [const -> INT_NUMBER] with [6] and goto state 81
+Result : <int @ 0x7f2bb60a2580> (6)
+
+State  : 81
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN LPAREN Expr PLUS const . LexToken(RPAREN,')',14,233)
+Action : Reduce rule [Expr -> const] with [6] and goto state 139
+Result : <int @ 0x7f2bb60a2580> (6)
+
+State  : 139
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN LPAREN Expr PLUS Expr . LexToken(RPAREN,')',14,233)
+Action : Reduce rule [Expr -> Expr PLUS Expr] with [<IdNode @ 0x7f2bb30829b0>,'+',6] and goto state 120
+Result : <BinaryOpNode @ 0x7f2bb3082be0> (<src.parser.Abstract_Syntax_Tree.BinaryO ...)
+
+State  : 120
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN LPAREN Expr . LexToken(RPAREN,')',14,233)
+Action : Shift and goto state 144
+
+State  : 144
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN LPAREN Expr RPAREN . LexToken(MINUS,'-',14,235)
+Action : Reduce rule [Expr -> LPAREN Expr RPAREN] with ['(',<BinaryOpNode @ 0x7f2bb3082be0>,')'] and goto state 120
+Result : <BinaryOpNode @ 0x7f2bb3082be0> (<src.parser.Abstract_Syntax_Tree.BinaryO ...)
+
+State  : 120
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN Expr . LexToken(MINUS,'-',14,235)
+Action : Shift and goto state 109
+
+State  : 109
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN Expr MINUS . LexToken(INT_NUMBER,10,14,237)
+Action : Shift and goto state 82
+
+State  : 82
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN Expr MINUS INT_NUMBER . LexToken(RPAREN,')',14,239)
+Action : Reduce rule [const -> INT_NUMBER] with [10] and goto state 81
+Result : <int @ 0x7f2bb60a2600> (10)
+
+State  : 81
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN Expr MINUS const . LexToken(RPAREN,')',14,239)
+Action : Reduce rule [Expr -> const] with [10] and goto state 140
+Result : <int @ 0x7f2bb60a2600> (10)
+
+State  : 140
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN Expr MINUS Expr . LexToken(RPAREN,')',14,239)
+Action : Reduce rule [Expr -> Expr MINUS Expr] with [<BinaryOpNode @ 0x7f2bb3082be0>,'-',10] and goto state 120
+Result : <BinaryOpNode @ 0x7f2bb3082a90> (<src.parser.Abstract_Syntax_Tree.BinaryO ...)
+
+State  : 120
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN Expr . LexToken(RPAREN,')',14,239)
+Action : Shift and goto state 144
+
+State  : 144
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES LPAREN Expr RPAREN . LexToken(PLUS,'+',14,241)
+Action : Reduce rule [Expr -> LPAREN Expr RPAREN] with ['(',<BinaryOpNode @ 0x7f2bb3082a90>,')'] and goto state 141
+Result : <BinaryOpNode @ 0x7f2bb3082a90> (<src.parser.Abstract_Syntax_Tree.BinaryO ...)
+
+State  : 141
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr TIMES Expr . LexToken(PLUS,'+',14,241)
+Action : Reduce rule [Expr -> Expr TIMES Expr] with [<BinaryOpNode @ 0x7f2bb3082940>,'*',<BinaryOpNode @ 0x7f2bb3082a90>] and goto state 118
+Result : <BinaryOpNode @ 0x7f2bb30828d0> (<src.parser.Abstract_Syntax_Tree.BinaryO ...)
+
+State  : 118
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr . LexToken(PLUS,'+',14,241)
+Action : Shift and goto state 108
+
+State  : 108
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr PLUS . LexToken(INT_NUMBER,4,14,243)
+Action : Shift and goto state 82
+
+State  : 82
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr PLUS INT_NUMBER . LexToken(SEMICOLON,';',14,244)
+Action : Reduce rule [const -> INT_NUMBER] with [4] and goto state 81
+Result : <int @ 0x7f2bb60a2540> (4)
+
+State  : 81
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr PLUS const . LexToken(SEMICOLON,';',14,244)
+Action : Reduce rule [Expr -> const] with [4] and goto state 139
+Result : <int @ 0x7f2bb60a2540> (4)
+
+State  : 139
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr PLUS Expr . LexToken(SEMICOLON,';',14,244)
+Action : Reduce rule [Expr -> Expr PLUS Expr] with [<BinaryOpNode @ 0x7f2bb30828d0>,'+',4] and goto state 118
+Result : <BinaryOpNode @ 0x7f2bb3082c50> (<src.parser.Abstract_Syntax_Tree.BinaryO ...)
+
+State  : 118
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Variable ASSIGNMENT Expr . LexToken(SEMICOLON,';',14,244)
+Action : Reduce rule [assignment_statement -> Variable ASSIGNMENT Expr] with [<IdNode @ 0x7f2bb3082400>,':=',<BinaryOpNode @ 0x7f2bb3082c50>] and goto state 41
+Result : <AssignmentNode @ 0x7f2bb3082d68> (<src.parser.Abstract_Syntax_Tree.Assignm ...)
+
+State  : 41
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN assignment_statement . LexToken(SEMICOLON,';',14,244)
+Action : Reduce rule [non_labeled_closed_statement -> assignment_statement] with [<AssignmentNode @ 0x7f2bb3082d68>] and goto state 36
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb30825f8> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 36
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN non_labeled_closed_statement . LexToken(SEMICOLON,';',14,244)
+Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb30825f8>] and goto state 33
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb30825f8> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 33
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN closed_statement . LexToken(SEMICOLON,';',14,244)
+Action : Reduce rule [Statement -> closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb30825f8>] and goto state 31
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb30825f8> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 31
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN Statement . LexToken(SEMICOLON,';',14,244)
+Action : Reduce rule [StateList -> Statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb30825f8>] and goto state 30
+Result : <StateListNode @ 0x7f2bb3082898> (<src.parser.Abstract_Syntax_Tree.StateLi ...)
+
+State  : 30
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList . LexToken(SEMICOLON,';',14,244)
+Action : Shift and goto state 73
+
+State  : 73
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON . LexToken(IF,'if',16,265)
+Action : Shift and goto state 51
+
+State  : 51
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF . LexToken(LPAREN,'(',16,268)
+Action : Shift and goto state 78
+
+State  : 78
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN . LexToken(ID,'j',16,269)
+Action : Shift and goto state 19
+
+State  : 19
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN ID . LexToken(GT,'>',16,271)
+Action : Reduce rule [Variable -> ID] with ['j'] and goto state 80
+Result : <IdNode @ 0x7f2bb3082c18> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 80
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN Variable . LexToken(GT,'>',16,271)
+Action : Reduce rule [Expr -> Variable] with [<IdNode @ 0x7f2bb3082c18>] and goto state 114
+Result : <IdNode @ 0x7f2bb3082c18> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 114
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN Expr . LexToken(GT,'>',16,271)
+Action : Shift and goto state 104
+
+State  : 104
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN Expr GT . LexToken(INT_NUMBER,13,16,273)
+Action : Shift and goto state 82
+
+State  : 82
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN Expr GT INT_NUMBER . LexToken(RPAREN,')',16,275)
+Action : Reduce rule [const -> INT_NUMBER] with [13] and goto state 81
+Result : <int @ 0x7f2bb60a2660> (13)
+
+State  : 81
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN Expr GT const . LexToken(RPAREN,')',16,275)
+Action : Reduce rule [Expr -> const] with [13] and goto state 135
+Result : <int @ 0x7f2bb60a2660> (13)
+
+State  : 135
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN Expr GT Expr . LexToken(RPAREN,')',16,275)
+Action : Reduce rule [BoolExpr -> Expr GT Expr] with [<IdNode @ 0x7f2bb3082c18>,'>',13] and goto state 113
+Result : <BinaryBoolNode @ 0x7f2bb308c0b8> (<src.parser.Abstract_Syntax_Tree.BinaryB ...)
+
+State  : 113
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN BoolExpr . LexToken(RPAREN,')',16,275)
+Action : Shift and goto state 143
+
+State  : 143
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN BoolExpr RPAREN . LexToken(THEN,'then',17,279)
+Action : Reduce rule [BoolExpr -> LPAREN BoolExpr RPAREN] with ['(',<BinaryBoolNode @ 0x7f2bb308c0b8>,')'] and goto state 75
+Result : <BinaryBoolNode @ 0x7f2bb308c0b8> (<src.parser.Abstract_Syntax_Tree.BinaryB ...)
+
+State  : 75
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr . LexToken(THEN,'then',17,279)
+Action : Shift and goto state 99
+
+State  : 99
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN . LexToken(CONTINUE,'continue',18,287)
+Action : Shift and goto state 57
+
+State  : 57
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN CONTINUE . LexToken(SEMICOLON,';',18,295)
+Action : Reduce rule [continue_statement -> CONTINUE] with ['continue'] and goto state 49
+Result : <str @ 0x7f2bb3e754f0> ('continue')
+
+State  : 49
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN continue_statement . LexToken(SEMICOLON,';',18,295)
+Action : Reduce rule [non_labeled_closed_statement -> continue_statement] with ['continue'] and goto state 36
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb308c128> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 36
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN non_labeled_closed_statement . LexToken(SEMICOLON,';',18,295)
+Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb308c128>] and goto state 127
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb308c128> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 127
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement . LexToken(SEMICOLON,';',18,295)
+Action : Reduce rule [Statement -> closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb308c128>] and goto state 126
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb308c128> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 126
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN Statement . LexToken(SEMICOLON,';',18,295)
+Action : Reduce rule [open_if_statement -> IF BoolExpr THEN Statement] with ['if',<BinaryBoolNode @ 0x7f2bb308c0b8>,'then',<NoneLabeledClosedStatementNode @ 0x7f2bb308c128>] and goto state 38
+Result : <IfNode @ 0x7f2bb308c208> (<src.parser.Abstract_Syntax_Tree.IfNode  ...)
+
+State  : 38
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON open_if_statement . LexToken(SEMICOLON,';',18,295)
+Action : Reduce rule [non_labeled_open_statement -> open_if_statement] with [<IfNode @ 0x7f2bb308c208>] and goto state 35
+Result : <IfNode @ 0x7f2bb308c208> (<src.parser.Abstract_Syntax_Tree.IfNode  ...)
+
+State  : 35
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON non_labeled_open_statement . LexToken(SEMICOLON,';',18,295)
+Action : Reduce rule [open_statement -> non_labeled_open_statement] with [<IfNode @ 0x7f2bb308c208>] and goto state 32
+Result : <IfNode @ 0x7f2bb308c208> (<src.parser.Abstract_Syntax_Tree.IfNode  ...)
+
+State  : 32
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON open_statement . LexToken(SEMICOLON,';',18,295)
+Action : Reduce rule [Statement -> open_statement] with [<IfNode @ 0x7f2bb308c208>] and goto state 96
+Result : <IfNode @ 0x7f2bb308c208> (<src.parser.Abstract_Syntax_Tree.IfNode  ...)
+
+State  : 96
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON Statement . LexToken(SEMICOLON,';',18,295)
+Action : Reduce rule [StateList -> StateList SEMICOLON Statement] with [<StateListNode @ 0x7f2bb3082898>,';',<IfNode @ 0x7f2bb308c208>] and goto state 30
+Result : <StateListNode @ 0x7f2bb3082fd0> (<src.parser.Abstract_Syntax_Tree.StateLi ...)
+
+State  : 30
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList . LexToken(SEMICOLON,';',18,295)
+Action : Shift and goto state 73
+
+State  : 73
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON . LexToken(ID,'j',19,299)
+Action : Shift and goto state 19
+
+State  : 19
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON ID . LexToken(ASSIGNMENT,':=',19,301)
+Action : Reduce rule [Variable -> ID] with ['j'] and goto state 54
+Result : <IdNode @ 0x7f2bb3082b70> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 54
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON Variable . LexToken(ASSIGNMENT,':=',19,301)
+Action : Shift and goto state 86
+
+State  : 86
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON Variable ASSIGNMENT . LexToken(ID,'j',19,304)
+Action : Shift and goto state 19
+
+State  : 19
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON Variable ASSIGNMENT ID . LexToken(PLUS,'+',19,306)
+Action : Reduce rule [Variable -> ID] with ['j'] and goto state 80
+Result : <IdNode @ 0x7f2bb308c080> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 80
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON Variable ASSIGNMENT Variable . LexToken(PLUS,'+',19,306)
+Action : Reduce rule [Expr -> Variable] with [<IdNode @ 0x7f2bb308c080>] and goto state 118
+Result : <IdNode @ 0x7f2bb308c080> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 118
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr . LexToken(PLUS,'+',19,306)
+Action : Shift and goto state 108
+
+State  : 108
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr PLUS . LexToken(INT_NUMBER,3,19,308)
+Action : Shift and goto state 82
+
+State  : 82
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr PLUS INT_NUMBER . LexToken(SEMICOLON,';',19,309)
+Action : Reduce rule [const -> INT_NUMBER] with [3] and goto state 81
+Result : <int @ 0x7f2bb60a2520> (3)
+
+State  : 81
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr PLUS const . LexToken(SEMICOLON,';',19,309)
+Action : Reduce rule [Expr -> const] with [3] and goto state 139
+Result : <int @ 0x7f2bb60a2520> (3)
+
+State  : 139
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr PLUS Expr . LexToken(SEMICOLON,';',19,309)
+Action : Reduce rule [Expr -> Expr PLUS Expr] with [<IdNode @ 0x7f2bb308c080>,'+',3] and goto state 118
+Result : <BinaryOpNode @ 0x7f2bb3082ef0> (<src.parser.Abstract_Syntax_Tree.BinaryO ...)
+
+State  : 118
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON Variable ASSIGNMENT Expr . LexToken(SEMICOLON,';',19,309)
+Action : Reduce rule [assignment_statement -> Variable ASSIGNMENT Expr] with [<IdNode @ 0x7f2bb3082b70>,':=',<BinaryOpNode @ 0x7f2bb3082ef0>] and goto state 41
+Result : <AssignmentNode @ 0x7f2bb3082e48> (<src.parser.Abstract_Syntax_Tree.Assignm ...)
+
+State  : 41
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON assignment_statement . LexToken(SEMICOLON,';',19,309)
+Action : Reduce rule [non_labeled_closed_statement -> assignment_statement] with [<AssignmentNode @ 0x7f2bb3082e48>] and goto state 36
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb308c240> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 36
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON non_labeled_closed_statement . LexToken(SEMICOLON,';',19,309)
+Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb308c240>] and goto state 33
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb308c240> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 33
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON closed_statement . LexToken(SEMICOLON,';',19,309)
+Action : Reduce rule [Statement -> closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb308c240>] and goto state 96
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb308c240> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 96
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON Statement . LexToken(SEMICOLON,';',19,309)
+Action : Reduce rule [StateList -> StateList SEMICOLON Statement] with [<StateListNode @ 0x7f2bb3082fd0>,';',<NoneLabeledClosedStatementNode @ 0x7f2bb308c240>] and goto state 30
+Result : <StateListNode @ 0x7f2bb308c2b0> (<src.parser.Abstract_Syntax_Tree.StateLi ...)
+
+State  : 30
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList . LexToken(SEMICOLON,';',19,309)
+Action : Shift and goto state 73
+
+State  : 73
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON . LexToken(IF,'if',20,313)
+Action : Shift and goto state 51
+
+State  : 51
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF . LexToken(LPAREN,'(',20,316)
+Action : Shift and goto state 78
+
+State  : 78
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN . LexToken(ID,'j',20,317)
+Action : Shift and goto state 19
+
+State  : 19
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN ID . LexToken(EQ,'=',20,319)
+Action : Reduce rule [Variable -> ID] with ['j'] and goto state 80
+Result : <IdNode @ 0x7f2bb3082fd0> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 80
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN Variable . LexToken(EQ,'=',20,319)
+Action : Reduce rule [Expr -> Variable] with [<IdNode @ 0x7f2bb3082fd0>] and goto state 114
+Result : <IdNode @ 0x7f2bb3082fd0> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 114
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN Expr . LexToken(EQ,'=',20,319)
+Action : Shift and goto state 106
+
+State  : 106
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN Expr EQ . LexToken(INT_NUMBER,7,20,321)
+Action : Shift and goto state 82
+
+State  : 82
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN Expr EQ INT_NUMBER . LexToken(RPAREN,')',20,322)
+Action : Reduce rule [const -> INT_NUMBER] with [7] and goto state 81
+Result : <int @ 0x7f2bb60a25a0> (7)
+
+State  : 81
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN Expr EQ const . LexToken(RPAREN,')',20,322)
+Action : Reduce rule [Expr -> const] with [7] and goto state 137
+Result : <int @ 0x7f2bb60a25a0> (7)
+
+State  : 137
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN Expr EQ Expr . LexToken(RPAREN,')',20,322)
+Action : Reduce rule [BoolExpr -> Expr EQ Expr] with [<IdNode @ 0x7f2bb3082fd0>,'=',7] and goto state 113
+Result : <BinaryBoolNode @ 0x7f2bb308c668> (<src.parser.Abstract_Syntax_Tree.BinaryB ...)
+
+State  : 113
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN BoolExpr . LexToken(RPAREN,')',20,322)
+Action : Shift and goto state 143
+
+State  : 143
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF LPAREN BoolExpr RPAREN . LexToken(THEN,'then',21,326)
+Action : Reduce rule [BoolExpr -> LPAREN BoolExpr RPAREN] with ['(',<BinaryBoolNode @ 0x7f2bb308c668>,')'] and goto state 75
+Result : <BinaryBoolNode @ 0x7f2bb308c668> (<src.parser.Abstract_Syntax_Tree.BinaryB ...)
+
+State  : 75
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr . LexToken(THEN,'then',21,326)
+Action : Shift and goto state 99
+
+State  : 99
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN . LexToken(BREAK,'break',22,334)
+Action : Shift and goto state 58
+
+State  : 58
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN BREAK . LexToken(ELSE,'else',23,342)
+Action : Reduce rule [break_statement -> BREAK] with ['break'] and goto state 50
+Result : <str @ 0x7f2bb308c4c8> ('break')
+
+State  : 50
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN break_statement . LexToken(ELSE,'else',23,342)
+Action : Reduce rule [non_labeled_closed_statement -> break_statement] with ['break'] and goto state 36
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb308c6a0> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 36
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN non_labeled_closed_statement . LexToken(ELSE,'else',23,342)
+Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb308c6a0>] and goto state 127
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb308c6a0> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 127
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement . LexToken(ELSE,'else',23,342)
+Action : Shift and goto state 158
+
+State  : 158
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement ELSE . LexToken(ID,'j',24,350)
+Action : Shift and goto state 19
+
+State  : 19
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement ELSE ID . LexToken(ASSIGNMENT,':=',24,352)
+Action : Reduce rule [Variable -> ID] with ['j'] and goto state 54
+Result : <IdNode @ 0x7f2bb308c630> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 54
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement ELSE Variable . LexToken(ASSIGNMENT,':=',24,352)
+Action : Shift and goto state 86
+
+State  : 86
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement ELSE Variable ASSIGNMENT . LexToken(ID,'j',24,355)
+Action : Shift and goto state 19
+
+State  : 19
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement ELSE Variable ASSIGNMENT ID . LexToken(TIMES,'*',24,357)
+Action : Reduce rule [Variable -> ID] with ['j'] and goto state 80
+Result : <IdNode @ 0x7f2bb308c898> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 80
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement ELSE Variable ASSIGNMENT Variable . LexToken(TIMES,'*',24,357)
+Action : Reduce rule [Expr -> Variable] with [<IdNode @ 0x7f2bb308c898>] and goto state 118
+Result : <IdNode @ 0x7f2bb308c898> (<src.parser.Abstract_Syntax_Tree.IdNode  ...)
+
+State  : 118
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement ELSE Variable ASSIGNMENT Expr . LexToken(TIMES,'*',24,357)
+Action : Shift and goto state 110
+
+State  : 110
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement ELSE Variable ASSIGNMENT Expr TIMES . LexToken(INT_NUMBER,3,24,359)
+Action : Shift and goto state 82
+
+State  : 82
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement ELSE Variable ASSIGNMENT Expr TIMES INT_NUMBER . LexToken(SEMICOLON,';',24,360)
+Action : Reduce rule [const -> INT_NUMBER] with [3] and goto state 81
+Result : <int @ 0x7f2bb60a2520> (3)
+
+State  : 81
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement ELSE Variable ASSIGNMENT Expr TIMES const . LexToken(SEMICOLON,';',24,360)
+Action : Reduce rule [Expr -> const] with [3] and goto state 141
+Result : <int @ 0x7f2bb60a2520> (3)
+
+State  : 141
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement ELSE Variable ASSIGNMENT Expr TIMES Expr . LexToken(SEMICOLON,';',24,360)
+Action : Reduce rule [Expr -> Expr TIMES Expr] with [<IdNode @ 0x7f2bb308c898>,'*',3] and goto state 118
+Result : <BinaryOpNode @ 0x7f2bb308c9e8> (<src.parser.Abstract_Syntax_Tree.BinaryO ...)
+
+State  : 118
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement ELSE Variable ASSIGNMENT Expr . LexToken(SEMICOLON,';',24,360)
+Action : Reduce rule [assignment_statement -> Variable ASSIGNMENT Expr] with [<IdNode @ 0x7f2bb308c630>,':=',<BinaryOpNode @ 0x7f2bb308c9e8>] and goto state 41
+Result : <AssignmentNode @ 0x7f2bb308ca20> (<src.parser.Abstract_Syntax_Tree.Assignm ...)
+
+State  : 41
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement ELSE assignment_statement . LexToken(SEMICOLON,';',24,360)
+Action : Reduce rule [non_labeled_closed_statement -> assignment_statement] with [<AssignmentNode @ 0x7f2bb308ca20>] and goto state 36
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb308c048> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 36
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement ELSE non_labeled_closed_statement . LexToken(SEMICOLON,';',24,360)
+Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb308c048>] and goto state 172
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb308c048> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 172
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON IF BoolExpr THEN closed_statement ELSE closed_statement . LexToken(SEMICOLON,';',24,360)
+Action : Reduce rule [closed_if_statement -> IF BoolExpr THEN closed_statement ELSE closed_statement] with ['if',<BinaryBoolNode @ 0x7f2bb308c668>,'then',<NoneLabeledClosedStatementNode @ 0x7f2bb308c6a0>,'else',<NoneLabeledClosedStatementNode @ 0x7f2bb308c048>] and goto state 43
+Result : <IfNode @ 0x7f2bb308c8d0> (<src.parser.Abstract_Syntax_Tree.IfNode  ...)
+
+State  : 43
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON closed_if_statement . LexToken(SEMICOLON,';',24,360)
+Action : Reduce rule [non_labeled_closed_statement -> closed_if_statement] with [<IfNode @ 0x7f2bb308c8d0>] and goto state 36
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb308cbe0> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 36
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON non_labeled_closed_statement . LexToken(SEMICOLON,';',24,360)
+Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb308cbe0>] and goto state 33
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb308cbe0> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 33
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON closed_statement . LexToken(SEMICOLON,';',24,360)
+Action : Reduce rule [Statement -> closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb308cbe0>] and goto state 96
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb308cbe0> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 96
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON Statement . LexToken(SEMICOLON,';',24,360)
+Action : Reduce rule [StateList -> StateList SEMICOLON Statement] with [<StateListNode @ 0x7f2bb308c2b0>,';',<NoneLabeledClosedStatementNode @ 0x7f2bb308cbe0>] and goto state 30
+Result : <StateListNode @ 0x7f2bb308c5f8> (<src.parser.Abstract_Syntax_Tree.StateLi ...)
+
+State  : 30
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList . LexToken(SEMICOLON,';',24,360)
+Action : Shift and goto state 73
+
+State  : 73
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON . LexToken(END,'end',25,363)
 Action : Reduce rule [empty -> <empty>] with [] and goto state 47
-Result : <NoneType @ 0x56185d824f70> (None)
+Result : <NoneType @ 0x7f2bb606d9d0> (None)
 
 State  : 47
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON empty . LexToken(END,'end',9,103)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON empty . LexToken(END,'end',25,363)
 Action : Reduce rule [non_labeled_closed_statement -> empty] with [None] and goto state 36
-Result : <NoneType @ 0x56185d824f70> (None)
+Result : <NoneType @ 0x7f2bb606d9d0> (None)
 
 State  : 36
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON non_labeled_closed_statement . LexToken(END,'end',9,103)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON non_labeled_closed_statement . LexToken(END,'end',25,363)
 Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [None] and goto state 33
-Result : <NoneType @ 0x56185d824f70> (None)
+Result : <NoneType @ 0x7f2bb606d9d0> (None)
 
 State  : 33
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON closed_statement . LexToken(END,'end',9,103)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON closed_statement . LexToken(END,'end',25,363)
 Action : Reduce rule [Statement -> closed_statement] with [None] and goto state 96
-Result : <NoneType @ 0x56185d824f70> (None)
+Result : <NoneType @ 0x7f2bb606d9d0> (None)
 
 State  : 96
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Statement . LexToken(END,'end',9,103)
-Action : Reduce rule [StateList -> StateList SEMICOLON Statement] with [<StateListNode @ 0x7f70735243d0>,';',None] and goto state 30
-Result : <StateListNode @ 0x7f7073524350> (<src.parser.Abstract_Syntax_Tree.StateLi ...)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList SEMICOLON Statement . LexToken(END,'end',25,363)
+Action : Reduce rule [StateList -> StateList SEMICOLON Statement] with [<StateListNode @ 0x7f2bb308c5f8>,';',None] and goto state 30
+Result : <StateListNode @ 0x7f2bb308cb70> (<src.parser.Abstract_Syntax_Tree.StateLi ...)
 
 State  : 30
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList . LexToken(END,'end',9,103)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList . LexToken(END,'end',25,363)
 Action : Shift and goto state 72
 
 State  : 72
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList END . LexToken(ENDPOINT,'.',9,106)
-Action : Reduce rule [compound_statement -> BEGIN StateList END] with ['begin',<StateListNode @ 0x7f7073524350>,'end'] and goto state 20
-Result : <CompoundStatementNode @ 0x7f7073524110> (<src.parser.Abstract_Syntax_Tree.Compoun ...)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO BEGIN StateList END . LexToken(SEMICOLON,';',25,366)
+Action : Reduce rule [compound_statement -> BEGIN StateList END] with ['begin',<StateListNode @ 0x7f2bb308cb70>,'end'] and goto state 42
+Result : <CompoundStatementNode @ 0x7f2bb308cc88> (<src.parser.Abstract_Syntax_Tree.Compoun ...)
+
+State  : 42
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO compound_statement . LexToken(SEMICOLON,';',25,366)
+Action : Reduce rule [non_labeled_closed_statement -> compound_statement] with [<CompoundStatementNode @ 0x7f2bb308cc88>] and goto state 36
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb3082780> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 36
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO non_labeled_closed_statement . LexToken(SEMICOLON,';',25,366)
+Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb3082780>] and goto state 192
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb3082780> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 192
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON FOR Variable ASSIGNMENT initial_value direction final_value DO closed_statement . LexToken(SEMICOLON,';',25,366)
+Action : Reduce rule [closed_for_statement -> FOR Variable ASSIGNMENT initial_value direction final_value DO closed_statement] with ['for',<IdNode @ 0x7f2bb3e9ff28>,':=',1,'to',10,'do',<NoneLabeledClosedStatementNode @ 0x7f2bb3082780>] and goto state 45
+Result : <ForNode @ 0x7f2bb308c7f0> (<src.parser.Abstract_Syntax_Tree.ForNode ...)
+
+State  : 45
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON closed_for_statement . LexToken(SEMICOLON,';',25,366)
+Action : Reduce rule [non_labeled_closed_statement -> closed_for_statement] with [<ForNode @ 0x7f2bb308c7f0>] and goto state 36
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb3082588> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 36
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON non_labeled_closed_statement . LexToken(SEMICOLON,';',25,366)
+Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb3082588>] and goto state 33
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb3082588> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 33
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON closed_statement . LexToken(SEMICOLON,';',25,366)
+Action : Reduce rule [Statement -> closed_statement] with [<NoneLabeledClosedStatementNode @ 0x7f2bb3082588>] and goto state 96
+Result : <NoneLabeledClosedStatementNode @ 0x7f2bb3082588> (<src.parser.Abstract_Syntax_Tree.NoneLab ...)
+
+State  : 96
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Statement . LexToken(SEMICOLON,';',25,366)
+Action : Reduce rule [StateList -> StateList SEMICOLON Statement] with [<StateListNode @ 0x7f2bb30822e8>,';',<NoneLabeledClosedStatementNode @ 0x7f2bb3082588>] and goto state 30
+Result : <StateListNode @ 0x7f2bb3082518> (<src.parser.Abstract_Syntax_Tree.StateLi ...)
+
+State  : 30
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList . LexToken(SEMICOLON,';',25,366)
+Action : Shift and goto state 73
+
+State  : 73
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON . LexToken(END,'end',26,368)
+Action : Reduce rule [empty -> <empty>] with [] and goto state 47
+Result : <NoneType @ 0x7f2bb606d9d0> (None)
+
+State  : 47
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON empty . LexToken(END,'end',26,368)
+Action : Reduce rule [non_labeled_closed_statement -> empty] with [None] and goto state 36
+Result : <NoneType @ 0x7f2bb606d9d0> (None)
+
+State  : 36
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON non_labeled_closed_statement . LexToken(END,'end',26,368)
+Action : Reduce rule [closed_statement -> non_labeled_closed_statement] with [None] and goto state 33
+Result : <NoneType @ 0x7f2bb606d9d0> (None)
+
+State  : 33
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON closed_statement . LexToken(END,'end',26,368)
+Action : Reduce rule [Statement -> closed_statement] with [None] and goto state 96
+Result : <NoneType @ 0x7f2bb606d9d0> (None)
+
+State  : 96
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList SEMICOLON Statement . LexToken(END,'end',26,368)
+Action : Reduce rule [StateList -> StateList SEMICOLON Statement] with [<StateListNode @ 0x7f2bb3082518>,';',None] and goto state 30
+Result : <StateListNode @ 0x7f2bb3082668> (<src.parser.Abstract_Syntax_Tree.StateLi ...)
+
+State  : 30
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList . LexToken(END,'end',26,368)
+Action : Shift and goto state 72
+
+State  : 72
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition BEGIN StateList END . LexToken(ENDPOINT,'.',26,371)
+Action : Reduce rule [compound_statement -> BEGIN StateList END] with ['begin',<StateListNode @ 0x7f2bb3082668>,'end'] and goto state 20
+Result : <CompoundStatementNode @ 0x7f2bb3082160> (<src.parser.Abstract_Syntax_Tree.Compoun ...)
 
 State  : 20
 Defaulted state 20: Reduce using 15
-Stack  : PROGRAM ID SEMICOLON VarDef function_definition compound_statement . LexToken(ENDPOINT,'.',9,106)
-Action : Reduce rule [SubProg -> VarDef function_definition compound_statement] with [<VarDefNode @ 0x7f7073514990>,None,<CompoundStatementNode @ 0x7f7073524110>] and goto state 5
-Result : <SubProgNode @ 0x7f7073514910> (<src.parser.Abstract_Syntax_Tree.SubProg ...)
+Stack  : PROGRAM ID SEMICOLON VarDef function_definition compound_statement . LexToken(ENDPOINT,'.',26,371)
+Action : Reduce rule [SubProg -> VarDef function_definition compound_statement] with [<VarDefNode @ 0x7f2bb3e9f668>,None,<CompoundStatementNode @ 0x7f2bb3082160>] and goto state 5
+Result : <SubProgNode @ 0x7f2bb3e9fe80> (<src.parser.Abstract_Syntax_Tree.SubProg ...)
 
 State  : 5
-Stack  : PROGRAM ID SEMICOLON SubProg . LexToken(ENDPOINT,'.',9,106)
+Stack  : PROGRAM ID SEMICOLON SubProg . LexToken(ENDPOINT,'.',26,371)
 Action : Shift and goto state 8
 
 State  : 8
 Defaulted state 8: Reduce using 10
 Stack  : PROGRAM ID SEMICOLON SubProg ENDPOINT . None
-Action : Reduce rule [ProgDef -> PROGRAM ID SEMICOLON SubProg ENDPOINT] with ['program',<str @ 0x7f707355c670>,';',<SubProgNode @ 0x7f7073514910>,'.'] and goto state 1
-Result : <ProgramNode @ 0x7f7073514ad0> (<src.parser.Abstract_Syntax_Tree.Program ...)
+Action : Reduce rule [ProgDef -> PROGRAM ID SEMICOLON SubProg ENDPOINT] with ['program','zcrProgram',';',<SubProgNode @ 0x7f2bb3e9fe80>,'.'] and goto state 1
+Result : <ProgramNode @ 0x7f2bb3e9fb38> (<src.parser.Abstract_Syntax_Tree.Program ...)
 
 State  : 1
 Stack  : ProgDef . $end
-Done   : Returning <ProgramNode @ 0x7f7073514ad0> (<src.parser.Abstract_Syntax_Tree.Program ...)
+Done   : Returning <ProgramNode @ 0x7f2bb3e9fb38> (<src.parser.Abstract_Syntax_Tree.Program ...)
 PLY: PARSE DEBUG END

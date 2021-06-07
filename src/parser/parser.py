@@ -40,7 +40,7 @@ def p_error(p):
     # p.lexer.mparser.statestack.pop()
     # p.lexer.mparser.symstack.pop()
     # p.lexer.mparser.state = p.lexer.mparser.statestack[-1]
-    # p.lexer.mparser.errorok = True
+    p.lexer.mparser.errorok = True
     # return p.lexer.token()
     pass
 

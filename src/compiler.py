@@ -14,7 +14,7 @@ from src.intermediate_code.Gen_IntermediateCode import IC_Generator
 class Compiler(object):
     def __init__(self, file_path, debug):
         logging.basicConfig(level=logging.DEBUG,
-                            filename="parselog.txt",
+                            filename="/root/workspace/Compilers/compilingPrinciple/parselog.txt",
                             filemode="w",
                             format="%(message)s")
         self.data = self.read_file(file_path)
@@ -35,7 +35,7 @@ class Compiler(object):
                                                  tracking=True,
                                                  debug=logging.getLogger())
         # 打印抽象语法树
-        print('+' * 43 + ' 抽象语法树 ' + '+' * 41)
+        print('+' * 43 + ' 语法树 ' + '+' * 43)
         AST_Dumper.showNode(Abstract_Syntax_Tree, 0)
         print('+' * 48 + '+' * 48)
 
@@ -50,6 +50,11 @@ class Compiler(object):
         semantics_analyze.analyze()
         semantics_analyze.print_newSymbolTable()
 
+        # 打印抽象语法树
+        print('+' * 40 + '语义分析新语法树' + '+' * 40)
+        AST_Dumper.showNode(Abstract_Syntax_Tree, 0)
+        print('+' * 48 + '+' * 48)
+        
         # 生成四元式
         ic_generator_obj = IC_Generator(Abstract_Syntax_Tree)
         print('+' * 44 + ' 四元式 ' + '+' * 44)
